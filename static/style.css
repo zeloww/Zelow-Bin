@@ -1,0 +1,58 @@
+@import url("https://unpkg.com/reset-css@5.0.1/reset.css");
+
+body {
+    font-family: Consolas, monospace;
+    font-size: 0.7em;
+
+    background: #2d1e1e;
+    overflow-y: hidden;
+}
+
+textarea {
+    background-color: transparent;
+    color: grey;
+
+    outline: none;
+    box-sizing: border-box;
+
+    border: none;
+    resize: none;
+
+    font-size: 1em;
+    tab-size: 4;
+    margin: 1.5em;
+
+    width: 100%;
+    height: 95vh;
+}
+
+#maxusage {
+    width: 22vh;
+    height: inherit;
+}
+
+#expiration {
+    width: 13vh;
+    height: inherit;
+}
+
+.options {
+    font-family: Times New Roman 16;
+    font-size: 1.5em;
+
+    border: none;
+    border-radius: 2em;
+    outline: none;
+
+    background-color: #1a1616;
+    color: grey;
+
+    margin-right: 10px;
+    text-align: center;
+}
+
+.formulaire {
+    display: flex;
+    justify-content: flex-end;
+    align-items: end;
+}

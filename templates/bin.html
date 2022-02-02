@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Zelow Bin</title>
+	<meta name="description" content="A simple Paste Bin!">
+	
+	<meta property="og:type" content="website">
+	<meta property="og:title" content="Zelow Bin">
+	<meta property="og:description" content="A simple Paste Bin!">
+	<meta property="og:image" content="https://media.discordapp.net/attachments/938185616590508082/938485007343824956/a_3ee9f8840d56bf9c172f200d4c2d61dd.png">
+	
+	<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='bin.css') }}"/>
+</head>
+
+<script type="text/javascript">
+	function animateTitle(Title = "Zelow Bin", delay = 300) {
+	    let counter = 0;
+	    let direction = true;
+	    aniTitle = setInterval(function () {
+	        if (counter == Title.length)
+	            direction = false;
+	        if (counter == false)
+	            direction = true;
+	        counter = (direction == true) ? ++counter : --counter;
+	        newtitle = (counter == 0) ? Title[0] : Title.slice(0, counter);
+	        document.title = newtitle;
+	    }, delay)
+	}
+
+	animateTitle()
+
+	function copyToClipboard() {
+		window.prompt("Copy to clipboard: Ctrl+C, Enter", document.getElementById("code").innerHTML);
+	}
+</script>
+
+<body>
+	<p>
+		<pre id="code">{{code}}</pre>
+	</p>
+	
+	<div class="buttons">
+		<button id="copy" title="copy" type="button" onclick="copyToClipboard()">
+			<img width="30" src="https://media.discordapp.net/attachments/850635541778792459/936678238187581561/image.png">
+		</button>
+
+		<a href="/">
+			<button id="new" title="new" type="button">
+				<img width="30" src="https://media.discordapp.net/attachments/850635541778792459/936677636330115082/image.png">
+			</button>
+		</a>
+	</div>
+</body>
+</html>

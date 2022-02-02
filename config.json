@@ -1,0 +1,9 @@
+{
+	"MAX_CHARACTERS": 262144,
+	"LANGAGES_LIST": {
+		"py": "Python",
+		"js": "JavaScript",
+		"html": "HTML",
+		"css": "CSS"
+	}
+}

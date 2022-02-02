@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Zelow Bin</title>
+	<meta name="description" content="A simple Paste Bin!">
+	
+	<meta property="og:type" content="website">
+	<meta property="og:title" content="Zelow Bin">
+	<meta property="og:description" content="A simple Paste Bin!">
+	<meta property="og:image" content="https://media.discordapp.net/attachments/938185616590508082/938485007343824956/a_3ee9f8840d56bf9c172f200d4c2d61dd.png">
+
+	<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}"/>
+</head>
+
+<script type="text/javascript">
+	function animateTitle(Title = "Zelow Bin", delay = 300) {
+	    let counter = 0;
+	    let direction = true;
+	    aniTitle = setInterval(function () {
+	        if (counter == Title.length)
+	            direction = false;
+	        if (counter == false)
+	            direction = true;
+	        counter = (direction == true) ? ++counter : --counter;
+	        newtitle = (counter == 0) ? Title[0] : Title.slice(0, counter);
+	        document.title = newtitle;
+	    }, delay)
+	}
+
+	animateTitle()
+</script>
+
+<body>
+	<form id="post-snippet" name="post-snippet" action="/new" method="POST">
+		<div class="formulaire">
+			<textarea spellcheck="False" name="code" maxlength="262144" wrap="hard" placeholder="Hello World!&#10Enter code!" autofocus required></textarea> <br>
+
+			<input id="maxusage" type="number" name="maxusage" list="maxusage-list" min="0" max="100" title="Nombre d'utilisation maximal" placeholder="maxusage" class="options">
+
+			<datalist id="maxusage-list">
+				<option value="1"></option>
+				<option value="2"></option>
+				<option value="5"></option>
+				<option value="10"></option>
+				<option value="100"></option>
+			</datalist>
+
+			<input id="expiration" pattern="[0-9dhms]+" name="expiration" list="expiration-list" title="Expiration: 1d1h1m1s" placeholder="expiration" class="options">
+
+			<datalist id="expiration-list">
+				<option value="1m"></option>
+				<option value="30m"></option>
+				<option value="1h"></option>
+				<option value="1d"></option>
+				<option value="1m"></option>
+			</datalist>
+
+			<select id="langage" name="langage" title="langage" class="options">
+				<option disabled>Langage</option>
+                {% for langage in langages_list %}
+                    <option value="{{ langage }}">{{ langages_list[langage] }}</option>
+                {% endfor %}
+				<option value="txt" selected>Text</option>
+			</select>
+
+			<button id="submit" class="options" title="Save" type="submit">
+				<img width="15" src="https://media.discordapp.net/attachments/850635541778792459/930883400666067044/image-removebg-preview.png">
+			</button>
+		</div>
+	</form>
+</body>
+</html>
